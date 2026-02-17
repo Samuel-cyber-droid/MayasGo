@@ -1,34 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // Aquí guardaremos la información que llegue de Django
+  const [datosDjango, setDatosDjango] = useState(null)
+
+  useEffect(() => {
+    // Hacemos la petición a la URL de tu API
+    fetch('http://127.0.0.1:8000/')
+      .then(respuesta => respuesta.json())
+      .then(data => {
+        setDatosDjango(data)
+      })
+      .catch(error => console.error("Error de conexión:", error))
+  }, []) // Los corchetes vacíos significan que esto se ejecuta solo una vez al cargar
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div>
+      <header>
+        <h1>Catálogo Retro - Zapatillas</h1>
+      </header>
+
+      <main>
+        {/* Si ya llegaron los datos, los mostramos. Si no, mostramos un texto de carga */}
+        {datosDjango ? (
+          <div className="info-box">
+            <h2>{datosDjango.titulo}</h2>
+            <p>{datosDjango.mensaje}</p>
+          </div>
+        ) : (
+          <p>Cargando información desde el servidor...</p>
+        )}
+      </main>
+    </div>
   )
 }
 
