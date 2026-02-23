@@ -1,0 +1,53 @@
+.coleccion-contenedor {
+  padding: 4rem 8rem; /* Para mantener el mismo margen que el Hero */
+}
+
+/* --- Encabezado y Filtros --- */
+.coleccion-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 3rem;
+}
+
+.coleccion-titulos h2 {
+  font-size: 2rem;
+  margin: 0 0 0.5rem 0;
+}
+
+.coleccion-titulos p {
+  color: #666;
+  margin: 0;
+}
+
+.coleccion-filtros {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-filtro {
+  padding: 8px 16px;
+  background: transparent;
+  border: 1px solid #ddd;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+}
+
+.btn-filtro:hover {
+  border-color: #000;
+}
+
+.btn-filtro.activo {
+  background: #000;
+  color: #fff;
+  border-color: #000;
+}
+
+/* --- La Cuadrícula --- */
+.coleccion-grid {
+  display: grid;
+  /* Esto crea columnas que se adaptan, pero mínimo de 300px */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2.5rem; /* El espacio entre cada tarjeta */
+}

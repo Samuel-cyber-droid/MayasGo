@@ -40,3 +40,36 @@
 .read-the-docs {
   color: #888;
 }
+
+/* Para el Hero - Dividir en dos columnas */
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 8rem;
+  gap: 4rem;
+}
+
+.hero-texto {
+  flex: 1;
+}
+
+.hero-imagen {
+  flex: 1;
+}
+
+.hero-imagen img {
+  width: 100%;
+  border-radius: 12px; /* Para darle esos bordes redondeados a la foto */
+  object-fit: cover;
+}
+
+.btn-galeria {
+  background-color: black;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  margin-top: 20px;
+}
