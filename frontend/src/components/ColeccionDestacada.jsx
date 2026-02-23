@@ -40,6 +40,15 @@ function ColeccionDestacada() {
   // Categorías para los botones
   const categorias = ['Todos', 'Running', 'Lifestyle', 'Casual'];
 
+  // --- ¡AQUÍ ESTÁ LA MAGIA DEL FILTRO! ---
+  const zapatosFiltrados = zapatosMock.filter(zapato => {
+    if (filtroActivo === 'Todos') {
+      return true; // Si el botón es "Todos", los dejamos pasar todos
+    }
+    // Si es otra categoría, solo pasan los que sean exactamente iguales al botón
+    return zapato.categoria === filtroActivo; 
+  });
+
   return (
     <section className="coleccion-contenedor">
       {/* Encabezado y Filtros */}
@@ -48,10 +57,10 @@ function ColeccionDestacada() {
           <h2>Colección Destacada</h2>
           <p>Descubre nuestros últimos diseños</p>
         </div>
-
+        
         <div className="coleccion-filtros">
           {categorias.map(categoria => (
-            <button
+            <button 
               key={categoria}
               className={`btn-filtro ${filtroActivo === categoria ? 'activo' : ''}`}
               onClick={() => setFiltroActivo(categoria)}
@@ -64,8 +73,9 @@ function ColeccionDestacada() {
 
       {/* Cuadrícula de Tarjetas */}
       <div className="coleccion-grid">
-        {zapatosMock.map(zapato => (
-          <TarjetaZapato
+        {/* --- CAMBIO AQUÍ: Ahora recorremos 'zapatosFiltrados' en lugar de 'zapatosMock' --- */}
+        {zapatosFiltrados.map(zapato => (
+          <TarjetaZapato 
             key={zapato.id}
             imagen={zapato.imagen}
             categoria={zapato.categoria}

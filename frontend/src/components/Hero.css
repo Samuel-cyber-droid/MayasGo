@@ -1,0 +1,70 @@
+/* components/Hero.css */
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4rem 8rem;
+  gap: 5rem; /* Espacio entre el texto y la foto */
+}
+
+/* Columna Izquierda (Texto) */
+.hero-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.etiqueta-coleccion {
+  background-color: #000;
+  color: #fff;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  margin-bottom: 2rem;
+}
+
+.hero-texto h1 {
+  font-size: 4.5rem; /* Un título gigante y de impacto */
+  font-weight: 800;
+  line-height: 1.1;
+  margin: 0 0 1.5rem 0;
+}
+
+.hero-texto p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 90%;
+}
+
+.btn-galeria {
+  background-color: #000;
+  color: #fff;
+  padding: 16px 36px;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-galeria:hover {
+  background-color: #333;
+  transform: translateY(-2px); /* Un pequeño salto al pasar el mouse */
+}
+
+/* Columna Derecha (Imagen) */
+.hero-imagen {
+  flex: 1;
+}
+
+.hero-imagen img {
+  width: 100%;
+  aspect-ratio: 4 / 3; /* Proporción para que parezca una foto editorial */
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08); /* Sombra muy sutil para darle profundidad */
+}
