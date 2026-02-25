@@ -4,12 +4,12 @@ from .models import Zapato
 from .serializers import ZapatoSerializer
 
 @api_view(['GET'])
-def lista_zapatos(request):
-    # Trae todos los datos de la base de datos
+def inicio(request):
+    # 1. Vamos a la base de datos y traemos todos los tenis registrados
     zapatos = Zapato.objects.all()
-
-    # Convierte los datos a JSON
+    
+    # 2. Los pasamos por nuestro traductor
     serializer = ZapatoSerializer(zapatos, many=True)
-
-    # Retorna los datos en formato JSON para React
+    
+    # 3. Enviamos la respuesta
     return Response(serializer.data)
